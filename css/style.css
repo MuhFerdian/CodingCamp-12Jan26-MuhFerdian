@@ -1,0 +1,200 @@
+/* 1. Global Reset & Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+}
+
+/* 2. Navbar - Dibuat agar tidak berantakan di layar kecil */
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 5%; 
+    border-bottom: 2px solid #ddd; 
+    position: sticky; 
+    top: 0; 
+    background: white; 
+    z-index: 1000;
+    flex-wrap: wrap; /* Supaya menu turun ke bawah kalau layar terlalu sempit */
+    gap: 10px;
+}
+
+.menu {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu a { 
+    text-decoration: none; 
+    color: #333; 
+    border: 1px solid #333; 
+    padding: 6px 12px; 
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* 3. Section Styling */
+section { 
+    padding: 60px 5%; 
+    text-align: center; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.banner-box { 
+    background: #eee; 
+    width: 100%;
+    aspect-ratio: 16 / 7; /* Menjaga proporsi banner di semua device */
+    border: 1px dashed #999; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 20px; 
+    font-size: clamp(12px, 2vw, 18px); /* Ukuran teks banner fleksibel */
+}
+
+/* 4. Headquarter - Circles dibuat fleksibel */
+.hq-container { 
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; /* Wajib ada untuk mobile */
+    gap: 30px; 
+    margin-top: 30px; 
+}
+
+.hq-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.circle { 
+    width: clamp(100px, 15vw, 150px); /* Ukuran dinamis minimal 100px */
+    height: clamp(100px, 15vw, 150px); 
+    border-radius: 50%; 
+    border: 2px solid #000; 
+    margin-bottom: 10px;
+}
+
+/* 5. Portfolio Section */
+.portfolio-grid { 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    margin-top: 30px; 
+    flex-wrap: wrap;
+}
+
+.portfolio-item { 
+    flex: 1; 
+    min-width: 250px; /* Supaya tidak terlalu kecil di layar lebar */
+    height: 200px; 
+    background: #ddd; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 1px solid #999; 
+}
+
+/* 6. Message Us - Form & Display Layout */
+.container-flex { 
+    display: flex; 
+    gap: 30px; 
+    text-align: left; 
+    margin-top: 30px; 
+    align-items: flex-start;
+}
+
+form, .display-box { 
+    flex: 1; 
+    width: 100%;
+    border: 1px solid #000; 
+    padding: 25px; 
+    background: #fff;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+}
+
+input, textarea { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    font-size: 16px; /* Mencegah auto-zoom di iPhone */
+}
+
+#submit-btn { 
+    width: 100%; 
+    padding: 12px; 
+    background: #333; 
+    color: white; 
+    cursor: pointer; 
+    border: none;
+    font-weight: bold;
+}
+
+/* 7. Footer */
+footer { 
+    text-align: right; 
+    padding: 20px 5%; 
+    border-top: 1px solid #eee; 
+    font-size: 13px;
+}
+
+/* 8. MEDIA QUERIES (Paling Penting untuk Responsif) */
+
+/* Tablet (Kurang dari 992px) */
+@media (max-width: 992px) {
+    .container-flex {
+        flex-direction: column; /* Form dan Result Box jadi atas-bawah */
+    }
+}
+
+/* Mobile (Kurang dari 600px) */
+@media (max-width: 600px) {
+    section {
+        padding: 40px 15px;
+    }
+
+    .navbar {
+        justify-content: center; /* Logo di tengah */
+        padding: 10px;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .menu a {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .portfolio-item {
+        min-width: 100%; /* Portfolio jadi full width di HP */
+    }
+}
